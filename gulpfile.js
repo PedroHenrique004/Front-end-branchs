@@ -5,6 +5,13 @@ const imagemin = require('gulp-imagemin');
 const uglify = require ('gulp-uglify');
 
 
+function comprimindoImagens(){
+    return gulp.src('./source/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./build/images'))
+}
+
+
 function compilaSass(){
     return gulp.src('./source/styles/main.scss')
         .pipe(sourcemaps.init())
