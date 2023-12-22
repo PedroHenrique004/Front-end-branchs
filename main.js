@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
         };
       } catch (error) {
         // imprime a mensagem de erro no console
-        console.log("Algo deu errado");
+        console.error(error.message);
       }  finally {
         console.log("Funcionou")
       }
