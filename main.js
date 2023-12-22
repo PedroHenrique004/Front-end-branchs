@@ -9,12 +9,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let xhttp = new XMLHttpRequest();
 
+    try {
         // abre a requisição
         xhttp.open('GET', 'https://api.github.com/users/PedroHenrique004');
         // envia a requisição
         xhttp.send();
         // define o evento de carregamento
         xhttp.onload = function() {
+          // verifica se a resposta foi bem sucedida
+          if (this.status == 200) {
             // converte a resposta em um objeto JSON
             let json = JSON.parse(this.responseText);
             // atribui os valores aos elementos HTML
@@ -25,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function(){
             seguidores.innerText = json.followers;
             seguindo.innerText = json.following;
             link.href = json.html_url;
-          
-        }    
+          }
+        };
+      } catch (error) {
+        // imprime a mensagem de erro no console
+        console.log("Algo deu errado");
+      }  finally {
+        console.log("Funcionou")
+      }
 })
