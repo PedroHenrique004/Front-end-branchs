@@ -44,7 +44,7 @@ function Charmander(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
 }
 
 
-const froakie = new Pokemon ("Froakie", "Azul");
+
 const froakieDoPedro = new Froakie("Sapo","Agua", 2, true, "Pedro")
 const froakieDaAna = new Froakie("SaltimbancoAzul","Agua", 2, false, "Ana")
 const froakieDoGabriel = new Charmander ("Dragao","Fogo", 2, false, "Gabriel")
