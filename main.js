@@ -24,10 +24,30 @@ function Froakie(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
 }
 
 
+function Charmander(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
+    Pokemon.call(this,"Charmander", "vermelho");
+    this.apelido = apelido;
+    this.tipagem = tipagem;
+    this.evolucoesPossiveis =  evolucoesPossiveis;
+    this.shiny = shiny;
+    this.eShiny = function(){
+        if (this.shiny == true){
+            console.log(`O pokemon tem a cor ${this.cor} Brilhante`)
+        }
+
+        else {
+            console.log(`O pokemon tem a cor ${this.cor}`)
+        }
+    }
+    this.dono = dono;
+
+}
+
+
 const froakie = new Pokemon ("Froakie", "Azul");
 const froakieDoPedro = new Froakie("Sapo","Agua", 2, true, "Pedro")
-const froakieDoGabriel = new Froakie("AquaSplash","Agua", 2, false, "Gabriel")
 const froakieDaAna = new Froakie("SaltimbancoAzul","Agua", 2, false, "Ana")
+const froakieDoGabriel = new Charmander ("Dragao","Fogo", 2, false, "Gabriel")
 
 
 
