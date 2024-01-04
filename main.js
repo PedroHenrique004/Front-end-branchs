@@ -1,39 +1,43 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const fotoDePerfil = document.querySelector('#avatar');
-    const nome = document.querySelector('#nome');
-    const nomeDoUsuario = document.querySelector('#username');
-    const repositorios = document.querySelector('#repositorios');
-    const seguidores = document.querySelector('#seguidores');
-    const seguindo = document.querySelector('#seguindo'); 
-    const link = document.querySelector('#link'); 
+function Pokemon (raca, cor) {
+    this.raca = raca;
+    this.cor = cor;
+}
 
-    let xhttp = new XMLHttpRequest();
 
-    try {
-        // abre a requisição
-        xhttp.open('GET', 'https://api.github.com/users/PedroHenrique004');
-        // envia a requisição
-        xhttp.send();
-        // define o evento de carregamento
-        xhttp.onload = function() {
-          // verifica se a resposta foi bem sucedida
-          if (this.status == 200) {
-            // converte a resposta em um objeto JSON
-            let json = JSON.parse(this.responseText);
-            // atribui os valores aos elementos HTML
-            fotoDePerfil.src = json.avatar_url;
-            nomeDoUsuario.innerText = json.login;
-            nome.innerText = json.name;             
-            repositorios.innerText = json.public_repos; 
-            seguidores.innerText = json.followers;
-            seguindo.innerText = json.following;
-            link.href = json.html_url;
-          }
-        };
-      } catch (error) {
-        // imprime a mensagem de erro no console
-        console.error(error.message);
-      }  finally {
-        console.log("Funcionou")
-      }
-})
+function Froakie(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
+        Pokemon.call(this,"Froakie", "Azul");
+        this.apelido = apelido;
+        this.tipagem = tipagem;
+        this.evolucoesPossiveis =  evolucoesPossiveis;
+        this.shiny = shiny;
+        this.eShiny = function(){
+            if (this.shiny == true){
+                console.log(`O pokemon tem a cor ${this.cor} Brilhante`)
+            }
+
+            else {
+                console.log(`O pokemon tem a cor ${this.cor}`)
+            }
+        }
+        this.dono = dono;
+
+}
+
+
+const froakie = new Pokemon ("Froakie", "Azul");
+const froakieDoPedro = new Froakie("Sapo","Agua", 2, true, "Pedro")
+const froakieDoGabriel = new Froakie("AquaSplash","Agua", 2, false, "Gabriel")
+const froakieDaAna = new Froakie("SaltimbancoAzul","Agua", 2, false, "Ana")
+
+
+
+
+console.log(froakieDoPedro);
+froakieDoPedro.eShiny();
+
+console.log(froakieDoGabriel);
+froakieDoGabriel.eShiny();
+
+console.log(froakieDaAna);
+froakieDaAna.eShiny();
+
