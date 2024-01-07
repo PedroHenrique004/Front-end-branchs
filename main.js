@@ -1,63 +1,26 @@
-function Pokemon (raca, cor) {
-    this.raca = raca;
-    this.cor = cor;
+function Aluno (nome, nota) {
+    this.nome = nome;
+    this.nota = nota;
 }
 
+const aluno1 = new Aluno("Pedro", 10);
+const aluno2 = new Aluno("Ana", 8);
+const aluno3 = new Aluno("Gabriel", 6);
+const aluno4 = new Aluno("Mercia", 4);
+const aluno5 = new Aluno("Weder", 2);
 
-function Froakie(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
-        Pokemon.call(this,"Froakie", "Azul");
-        this.apelido = apelido;
-        this.tipagem = tipagem;
-        this.evolucoesPossiveis =  evolucoesPossiveis;
-        this.shiny = shiny;
-        this.eShiny = function(){
-            if (this.shiny == true){
-                console.log(`O pokemon tem a cor ${this.cor} Brilhante`)
-            }
+const alunos = [];
 
-            else {
-                console.log(`O pokemon tem a cor ${this.cor}`)
-            }
-        }
-        this.dono = dono;
+alunos.push(aluno1);
+alunos.push(aluno2);
+alunos.push(aluno3);
+alunos.push(aluno4);
+alunos.push(aluno5);
 
-}
+const alunosAprovados = alunos.filter((aluno) => (
+    aluno.nota >= 6
+));
 
+console.log(alunosAprovados);
 
-function Charmander(apelido, tipagem, evolucoesPossiveis, shiny, dono ){
-    Pokemon.call(this,"Charmander", "vermelho");
-    this.apelido = apelido;
-    this.tipagem = tipagem;
-    this.evolucoesPossiveis =  evolucoesPossiveis;
-    this.shiny = shiny;
-    this.eShiny = function(){
-        if (this.shiny == true){
-            console.log(`O pokemon tem a cor ${this.cor} Brilhante`)
-        }
-
-        else {
-            console.log(`O pokemon tem a cor ${this.cor}`)
-        }
-    }
-    this.dono = dono;
-
-}
-
-
-
-const froakieDoPedro = new Froakie("Sapo","Agua", 2, true, "Pedro")
-const froakieDaAna = new Froakie("SaltimbancoAzul","Agua", 2, false, "Ana")
-const froakieDoGabriel = new Charmander ("Dragao","Fogo", 2, false, "Gabriel")
-
-
-
-
-console.log(froakieDoPedro);
-froakieDoPedro.eShiny();
-
-console.log(froakieDoGabriel);
-froakieDoGabriel.eShiny();
-
-console.log(froakieDaAna);
-froakieDaAna.eShiny();
 
